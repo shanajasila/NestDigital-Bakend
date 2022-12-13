@@ -18,12 +18,12 @@ public class Leaveapply {
   private String fromdate;
   private String todate;
   private String applydate;
-  private String status;
+  private int status;
 
     public Leaveapply() {
     }
 
-    public Leaveapply(int id, int empcode, String leavetype, String reason, String fromdate, String todate, String applydate, String status) {
+    public Leaveapply(int id, int empcode, String leavetype, String reason, String fromdate, String todate, String applydate, int status) {
         this.id = id;
         this.empcode = empcode;
         this.leavetype = leavetype;
@@ -62,7 +62,7 @@ public class Leaveapply {
         return applydate;
     }
 
-    public String getStatus() {
+    public int getStatus() {
         return status;
     }
 
@@ -94,7 +94,7 @@ public class Leaveapply {
         this.applydate = applydate;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(int status) {
         this.status = status;
     }
 }

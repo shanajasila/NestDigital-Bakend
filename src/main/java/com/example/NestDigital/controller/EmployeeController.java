@@ -1,10 +1,13 @@
 package com.example.NestDigital.controller;
 
 import com.example.NestDigital.dao.EmployeeDao;
+import com.example.NestDigital.dao.LeavCounterDao;
 import com.example.NestDigital.model.Employee;
+import com.example.NestDigital.model.LeavCounter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.Year;
 import java.util.HashMap;
 import java.util.List;
 
@@ -13,6 +16,11 @@ public class EmployeeController {
 
     @Autowired
     private EmployeeDao dao;
+
+    @Autowired
+    private LeavCounterDao d;
+
+    int year= Year.now().getValue();
 
     @CrossOrigin(origins ="*")
     @PostMapping(path ="/addemp",consumes = "application/json",produces = "application/json")
@@ -26,6 +34,11 @@ public class EmployeeController {
         System.out.println(e.getPassword());
         dao.save(e);
         HashMap<String,String>map=new HashMap<>();
+        map.put("empcode",String.valueOf(e.getId()));
+        LeavCounter l=new LeavCounter();
+        l.setEmpcode(e.getId());
+        l.setYear(String.valueOf(year));
+        d.save(l);
         map.put("status","success");
         return map;
     }

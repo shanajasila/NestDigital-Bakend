@@ -71,7 +71,7 @@ public class Employee {
         this.id = id;
     }
 
-    public void setEmpid(String empid) {
+    public void setEmpcode(String empcode) {
         this.empcode = empcode;
     }
 

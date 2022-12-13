@@ -17,6 +17,6 @@ public interface LeaveapplyDao extends CrudRepository<Leaveapply,Integer> {
     @Modifying
     @Transactional
     @Query(value = "UPDATE `leaveapply` SET `status`= :status WHERE `empcode`= :empcode",nativeQuery = true)
-    void UpdateStatus(@Param("empcode") Integer empid, @Param("status") String status);
+    void UpdateStatus(@Param("empcode") Integer empid, @Param("status") Integer status);
 
 }
