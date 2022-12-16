@@ -13,7 +13,7 @@ public class LeavCounter {
     @Id
     @GeneratedValue
     private int id;
-    private int empcode;
+    private int empid;
     private int casual=20;
     private int sick=7;
     private int special=3;
@@ -22,9 +22,9 @@ public class LeavCounter {
     public LeavCounter() {
     }
 
-    public LeavCounter(int id, int empcode, int casual, int sick, int special, String year) {
+    public LeavCounter(int id, int empid, int casual, int sick, int special, String year) {
         this.id = id;
-        this.empcode = empcode;
+        this.empid = empid;
         this.casual = casual;
         this.sick = sick;
         this.special = special;
@@ -35,8 +35,8 @@ public class LeavCounter {
         return id;
     }
 
-    public int getEmpcode() {
-        return empcode;
+    public int getEmpid() {
+        return empid;
     }
 
     public int getCasual() {
@@ -59,8 +59,8 @@ public class LeavCounter {
         this.id = id;
     }
 
-    public void setEmpcode(int empcode) {
-        this.empcode = empcode;
+    public void setEmpid(int empid) {
+        this.empid = empid;
     }
 
     public void setCasual(int casual) {

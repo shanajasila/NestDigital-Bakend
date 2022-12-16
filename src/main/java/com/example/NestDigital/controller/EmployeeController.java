@@ -34,9 +34,9 @@ public class EmployeeController {
         System.out.println(e.getPassword());
         dao.save(e);
         HashMap<String,String>map=new HashMap<>();
-        map.put("empcode",String.valueOf(e.getId()));
+        map.put("empid",String.valueOf(e.getId()));
         LeavCounter l=new LeavCounter();
-        l.setEmpcode(e.getId());
+        l.setEmpid(e.getId());
         l.setYear(String.valueOf(year));
         d.save(l);
         map.put("status","success");

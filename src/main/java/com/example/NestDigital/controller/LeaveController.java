@@ -36,29 +36,41 @@ public class LeaveController {
     }
 
     @CrossOrigin(origins = "*")
-    @GetMapping(path = "/viewallleavebyemp")
-    public List<Map<String,String>> ViewAllLeave()
-    {
-        return (List<Map<String, String>>) ldao.ViewAllLeave();
-    }
+    @GetMapping(path = "/viewalleavebyemp")
+   public List<Map<String,String>>ViewAllLeave(){return (List<Map<String,String>>)ldao.ViewAllLeave();}
 
     @CrossOrigin(origins = "*")
     @PostMapping(value = "/update",consumes = "application/json",produces = "application/json")
     public Map<String,String> UpdateStatus(@RequestBody Leaveapply l)
     {
-        String empcode=String.valueOf(l.getEmpcode());
+        String empid=String.valueOf(l.getEmpid());
         String status=String.valueOf(l.getStatus());
-        System.out.println(empcode);
+        System.out.println(empid);
         System.out.println(status);
-        ldao.UpdateStatus(l.getEmpcode(),l.getStatus());
-
-//        String leavetype=l.getLeavetype();
-//        LocalDate fromdate=LocalDate.parse(l.getFromdate());
-//        LocalDate todate=LocalDate.parse(l.getTodate());
+        ldao.UpdateStatus(l.getEmpid(),l.getStatus());
 
         HashMap<String,String> map=new HashMap<>();
         map.put("status","success");
         return map;
+    }
+
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/accept",consumes = "application/json",produces = "application/json")
+    public Map<String,String> AcceptLeave(@RequestBody Leaveapply l)
+    {
+        ldao.AcceptLeave(l.getEmpid());
+        HashMap<String,String> map=new HashMap<>();
+        map.put("status","success");
+
+        return map;
+    }
+    @CrossOrigin(origins = "*")
+    @PostMapping(path = "/searchstatus",consumes = "application/json",produces = "application/json")
+    public List<Leaveapply> SearchStatus(@RequestBody Leaveapply l)
+    {
+        String empid=String.valueOf(l.getEmpid());
+        System.out.println(empid);
+        return (List<Leaveapply>) ldao.SearchStatus(l.getEmpid());
     }
 
 

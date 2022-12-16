@@ -9,23 +9,24 @@ import jakarta.persistence.Table;
 @Entity
 @Table(name = "leaveapply")
 public class Leaveapply {
-  @Id
-  @GeneratedValue
-  private int id;
-  private int empcode;
-  private String leavetype;
-  private String reason;
-  private String fromdate;
-  private String todate;
-  private String applydate;
-  private int status;
+    @Id
+    @GeneratedValue
+    private int id;
+    private int empid;
+    private String leavetype;
+    private String reason;
+    private String fromdate;
+    private String todate;
+    private String applydate;
+    private int status;
+
 
     public Leaveapply() {
     }
 
-    public Leaveapply(int id, int empcode, String leavetype, String reason, String fromdate, String todate, String applydate, int status) {
+    public Leaveapply(int id, int empid, String leavetype, String reason, String fromdate, String todate, String applydate, int status) {
         this.id = id;
-        this.empcode = empcode;
+        this.empid = empid;
         this.leavetype = leavetype;
         this.reason = reason;
         this.fromdate = fromdate;
@@ -38,8 +39,8 @@ public class Leaveapply {
         return id;
     }
 
-    public int getEmpcode() {
-        return empcode;
+    public int getEmpid() {
+        return empid;
     }
 
     public String getLeavetype() {
@@ -70,8 +71,8 @@ public class Leaveapply {
         this.id = id;
     }
 
-    public void setEmpcode(int empcode) {
-        this.empcode = empcode;
+    public void setEmpid(int empid) {
+        this.empid = empid;
     }
 
     public void setLeavetype(String leavetype) {
@@ -98,4 +99,3 @@ public class Leaveapply {
         this.status = status;
     }
 }
-
